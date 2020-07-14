@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>gregslist</title>
+</head>
+
+<body class="bg-light">
+    <header class="container-fluid">
+        <div class="row class= text-center text-white bg-secondary p-1">
+            <div class="col-12">
+                <h1>KAYDENS LIST</h1>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-4 text-center"><button class="btn btn-secondary m-2"
+                    onclick="app.carsController.openForms('car')">
+                    <h5><u>MAKE A CAR!</u></h5>
+                </button></div>
+            <div class="col-4 text-center"><button class="btn btn-secondary m-2"
+                    onclick="app.jobsController.openForms('job')">
+                    <h5><u>MAKE A JOB!</u></h5>
+                </button></div>
+            <div class="col-4 text-center"><button class="btn btn-secondary m-2"
+                    onclick="app.houseController.openForms('house')">
+                    <h5><u>MAKE A HOUSE!</u></h5>
+                </button></div>
+        </div>
+        <div class="row bg-light p-3">
+            <div class="col-4 text-center">
+                <form id="car" onsubmit="app.carsController.addCar(event) " hidden>
+                    <div class="form-group">
+                        <label for="make">MAKE</label>
+                        <input type="text" name="make" class="form-control" placeholder="Enter Make...">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">MODEL</label>
+                        <input type="text" name="model" class="form-control" placeholder="Enter Model...">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">YEAR</label>
+                        <input type="number" min="1900" max="2020" name="year" class="form-control"
+                            placeholder="Enter Year...">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">PRICE</label>
+                        <input type="number" min="0" name="price" class="form-control" placeholder="Enter Price...">
+                    </div>
+                    <div class="form-group">
+                        <label for="imgUrl">IMAGE</label>
+                        <input type="text" name="imgUrl" class="form-control" placeholder="Enter Image...">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" class="form-control" placeholder="Enter Description...">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-4 text-center">
+
+                <form hidden id="job" class="bg-secondary text-white p-2 rounded"
+                    onsubmit="app.jobsController.addJobs(event)">
+                    <div class="form-group">
+                        <label for="jobTitle">TITLE</label>
+                        <input type="text" name="jobTitle" class="form-control" placeholder="Enter Title...">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">COMPANY</label>
+                        <input type="text" name="company" class="form-control" placeholder="Enter Company...">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">PAY RATES</label>
+                        <input type="text" name="rate" class="form-control" placeholder="Enter Pay Rate...">
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">HOURS</label>
+                        <input type="text" name="hours" class="form-control" placeholder="Enter Hours...">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobDescription">JOB DESCRIPTION</label>
+                        <input type="text" name="jobDescription" class="form-control"
+                            placeholder="Enter Job Description...">
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-4 text-center">
+                <form hidden id="house" onsubmit="app.houseController.addHouse(event)">
+                    <div class="form-group">
+                        <label for="year">YEAR BUILT</label>
+                        <input type="number" name="year" class="form-control" placeholder="Enter Year...">
+                    </div>
+                    <div class="form-group">
+                        <label for="bedrooms">BEDROOMS</label>
+                        <input type="number" name="bedrooms" class="form-control" placeholder="Enter Square Ft....">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathrooms">BATHROOMS</label>
+                        <input type="number" name="bathrooms" class="form-control" placeholder="Enter Square Ft....">
+                    </div>
+                    <div class="form-group">
+                        <label for="levels">STORIES</label>
+                        <input type="number" min="1" max="4" name="levels" class="form-control"
+                            placeholder="Enter Stories...">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">PRICE</label>
+                        <input type="number" min="0" name="price" class="form-control" placeholder="Enter Price...">
+                    </div>
+                    <div class="form-group">
+                        <label for="imgUrl">IMAGE</label>
+                        <input type="text" name="imgUrl" class="form-control" placeholder="Enter Image...">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" class="form-control" placeholder="Enter Description...">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div hidden id="cars" class="row justify-content-center bg-secondary">
+
+        </div>
+        <div hidden id="jobs" class="row justify-content-center bg-secondary">
+
+        </div>
+        <div hidden id="houses" class="row justify-content-center bg-secondary">
+
+        </div>
+
+
+    </main>
+
+    <footer class="container-fluid">
+        <div class="row fixed-bottom">
+            <div class="col-12 bg-secondary text-center py-2 text-white">
+                <h5>CREATED BY: KAYDEN COOPER</h5>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app/main.js" type="module"></script>
+</body>
+
+
+
+</html>
